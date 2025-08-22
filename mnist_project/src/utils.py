@@ -9,3 +9,9 @@ def leaky_relu(z, alpha = 0.01):
 
 def derivative_leaky_relu(z, alpha = 0.01):
     return (z > 0).astype(float) + alpha * (z <= 0).astype(float)
+
+def cross_entropy_loss(y, y_hat):
+    epsilon = 1e-10
+    loss = -np.sum(y*np.log(y_hat + epsilon))/y.shape[0]
+    return loss
+
