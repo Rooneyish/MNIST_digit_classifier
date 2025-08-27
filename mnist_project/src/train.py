@@ -49,6 +49,7 @@ def train_network(epochs = 10, batch_size = 64, learning_rate = 0.001):
     plt.ylabel("Loss")
     plt.grid(True)
     plt.savefig("training_loss.png")
+    print("✅ Loss X Epochs Graph as training_loss.png")
 
 
     y_pred = ann.forward_prop(X_test)
