@@ -1,17 +1,12 @@
-from src.mnist import load_idx_mnist
+from src.train import train_network
 
 def main():
-    X_train, y_train, X_test, y_test = load_idx_mnist()
-      
-    print("\n Data Preprocessing Complete!")
-    print("X_train shape:", X_train.shape)
-    print("y_train shape:", y_train.shape)
-    print("X_test  shape:", X_test.shape)
-    print("y_test  shape:", y_test.shape)
-
-    print("\nExample (first training sample):")
-    print("Image vector (first 20 pixels):", X_train[0][:20])
-    print("Label (one-hot):", y_train[0])
+    trained_model = train_network(
+        epochs=100,
+        batch_size=128,
+        learning_rate=0.0005
+    )
+    print("✅ Training complete!")
 
 if __name__ == "__main__":
     main()

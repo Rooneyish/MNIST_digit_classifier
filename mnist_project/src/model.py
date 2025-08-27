@@ -1,13 +1,13 @@
 import numpy as np
-from src.utils import softmax, leaky_relu, derivative_leaky_relu, cross_entropy_loss
+from src.utils import softmax, leaky_relu, derivative_leaky_relu
 
 class Artificial_Neural_Network:
-    def __init__(self, input_size, hidden1_size, hidden2_size, output_size, learning_rate = 0.01, beta = 0.99, epsilon = 1e-10):
-        self.W1 = np.random.randn(input_size,hidden1_size)
+    def __init__(self, input_size, hidden1_size, hidden2_size, output_size, learning_rate = 0.01, beta = 0.9, epsilon = 1e-8):
+        self.W1 = np.random.randn(input_size,hidden1_size) * np.sqrt(2/input_size)
         self.b1 = np.zeros((1,hidden1_size))
-        self.W2 = np.random.randn(hidden1_size,hidden2_size)
+        self.W2 = np.random.randn(hidden1_size,hidden2_size) * np.sqrt(2/hidden1_size)
         self.b2 = np.zeros((1,hidden2_size))
-        self.W3 = np.random.randn(hidden2_size,output_size)
+        self.W3 = np.random.randn(hidden2_size,output_size) * np.sqrt(2/hidden2_size)
         self.b3 = np.zeros((1,output_size))
         self.learning_rate = learning_rate
         self.epsilon = epsilon
@@ -36,7 +36,7 @@ class Artificial_Neural_Network:
         dW3 = np.dot(self.A2.T, dZ3) / m
         db3 = np.sum(dZ3, axis=0, keepdims=True) / m
 
-        dA2 = np.dot(dZ3, dW3.T)
+        dA2 = np.dot(dZ3, self.W3.T)
         dZ2 = dA2 * derivative_leaky_relu(self.Z2)
         dW2 = np.dot(self.A1.T, dZ2) / m
         db2 = np.sum(dZ2, axis=0, keepdims=True) / m
