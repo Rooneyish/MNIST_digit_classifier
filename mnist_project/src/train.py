@@ -66,6 +66,9 @@ def train_network(epochs = 10, batch_size = 64, learning_rate = 0.001):
     plt.savefig("confusion_matrix.png")
     print("✅ Confusion matrix heatmap saved as confusion_matrix.png")
 
+    path = "mnist_ann.pkl"
+    ann.save()
+    print("✅ MNIST model saved as '{path}'")
     return ann
 
 

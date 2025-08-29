@@ -1,4 +1,5 @@
 import numpy as np
+import pickle
 from src.utils import softmax, leaky_relu, derivative_leaky_relu
 
 class Artificial_Neural_Network:
@@ -19,7 +20,6 @@ class Artificial_Neural_Network:
         self.v_dw3 = np.zeros_like(self.W3)
         self.v_db3 = np.zeros_like(self.b3)
 
-    
     def forward_prop(self, X):
         self.Z1 = np.dot(X,self.W1) + self.b1
         self.A1 = leaky_relu(self.Z1)
@@ -64,5 +64,20 @@ class Artificial_Neural_Network:
         y_hat = self.forward_prop(X)
         self.backward_prop(X, y, y_hat)
         return y_hat
+    
+    def save(self, path= 'model.pkl'):
+        params={
+            "W1": self.W1,"b1": self.b1,
+            "W2": self.W2,"b2": self.b2,
+            "W3": self.W3,"b3": self.b3
+        }
+        with open(path,"wb") as f:
+            pickle.dump(params, f)
 
+    def load(self, path = "model.pkl"):
+        with open(path, "rb") as f:
+            params = pickle.load(f)
+        self.W1, self.b1 = params["W1"], params["b1"]
+        self.W2, self.b2 = params["W2"], params["b2"]
+        self.W3, self.b3 = params["W3"], params["b3"]
 
