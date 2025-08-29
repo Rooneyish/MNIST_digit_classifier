@@ -4,7 +4,7 @@ from PIL import Image
 
 API_URL = "http://127.0.0.1:8000/predict"
 
-st.title("🖊️ MNIST Digit Recognition (FastAPI + Streamlit)")
+st.title("🖊️ MNIST Digit Recognition")
 st.write("Upload a hand-written digit image (0–9).")
 
 uploaded_file = st.file_uploader("Choose an image", type=["png", "jpg", "jpeg"])
