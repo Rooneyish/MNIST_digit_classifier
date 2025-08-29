@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, classification_report
 import seaborn as sns
 from src.mnist import load_idx_mnist
 from src.utils import cross_entropy_loss
@@ -66,9 +66,12 @@ def train_network(epochs = 10, batch_size = 64, learning_rate = 0.001):
     plt.savefig("confusion_matrix.png")
     print("✅ Confusion matrix heatmap saved as confusion_matrix.png")
 
-    path = "mnist_ann.pkl"
+    report = classification_report(y_true_labels, y_pred_labels, digits=4)
+    print("✅ Classification Report:\n", report)
+
+    path = "model.pkl"
     ann.save()
-    print("✅ MNIST model saved as '{path}'")
+    print(f"✅ MNIST model saved as '{path}'")
     return ann
 
 
