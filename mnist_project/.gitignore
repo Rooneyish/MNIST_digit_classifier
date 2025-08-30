@@ -57,3 +57,5 @@ training_loss.png
 # ----------------------------
 data/*.idx*
 !data/README.md   # if you want to keep a placeholder
+
+.devcontainer/
