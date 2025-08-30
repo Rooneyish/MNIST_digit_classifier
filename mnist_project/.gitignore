@@ -1,0 +1,59 @@
+# ----------------------------
+# Python
+# ----------------------------
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.pyo
+*.pdb
+
+# ----------------------------
+# Virtual Environments
+# ----------------------------
+.venv/
+venv/
+ENV/
+env/
+
+# ----------------------------
+# Jupyter / Streamlit
+# ----------------------------
+.ipynb_checkpoints/
+.streamlit/
+
+# ----------------------------
+# IDE / Editors
+# ----------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ----------------------------
+# OS files
+# ----------------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------------
+# Project-specific
+# ----------------------------
+# Model files
+model.pkl
+
+# Lock / build files
+uv.lock
+*.egg-info/
+dist/
+build/
+
+# Plots and images (can regenerate)
+confusion_matrix.png
+training_loss.png
+
+# ----------------------------
+# Data (if too large, keep only samples)
+# ----------------------------
+data/*.idx*
+!data/README.md   # if you want to keep a placeholder
