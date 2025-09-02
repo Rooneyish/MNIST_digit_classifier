@@ -1,7 +1,4 @@
-# 📌 Project Title
-
-Short 1-2 sentence description of your project. Mention what it does and why it’s useful.  
-
+# 📌 MNIST Digit Classifier
 ---
 
 ## 📂 Project Structure
